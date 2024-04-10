@@ -1,0 +1,53 @@
+{
+  "name": "bitbirddev/tinymce-bundle",
+  "type": "symfony-bundle",
+  "description": "",
+  "license": "MIT",
+  "authors": [
+    {
+      "name": "Benjamin Schneider",
+      "email": "bs@bitbird.de",
+      "role": "Developer"
+    }
+  ],
+  "minimum-stability": "dev",
+  "prefer-stable": true,
+  "require": {
+    "php": ">=8.2"
+  },
+  "autoload": {
+    "psr-4": {
+      "bitbirddev\\TinyMceBundle\\": "src"
+    }
+  },
+  "autoload-dev": {
+    "psr-4": {
+      "bitbirddev\\TinyMceBundle\\Tests\\": "tests/"
+    }
+  },
+  "extra": {
+    "pimcore": {
+      "bundles": [
+        "bitbirddev\\TinyMceBundle\\TinyMceBundle"
+      ]
+    }
+  },
+  "config": {
+    "optimize-autoloader": true,
+    "sort-packages": true,
+    "platform": {
+      "php": "8.2"
+    },
+    "allow-plugins": {
+      "pestphp/pest-plugin": true
+    }
+  },
+  "scripts": {
+    "test": "./vendor/bin/pest",
+    "coverage": "./vendor/bin/pest --coverage"
+  },
+  "require-dev": {
+    "pestphp/pest": "^2.31",
+    "pimcore/pimcore": "^11"
+  }
+}

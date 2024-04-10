@@ -1,0 +1,14 @@
+imports:
+  # - { resource: ./services/*.yaml }
+
+parameters:
+
+services:
+  _defaults:
+    autoconfigure: true
+    autowire: true
+
+  bitbirddev\TinyMceBundle\:
+    resource: "../src/*"
+    exclude:
+      - "../src/{DependencyInjection,Entity,Tests,Kernel.php}"
