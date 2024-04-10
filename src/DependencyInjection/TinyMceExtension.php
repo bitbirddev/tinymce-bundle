@@ -24,6 +24,8 @@ class TinyMceExtension extends Extension
     public function load(array $configs, ContainerBuilder $container): void
     {
 
+        ray("asdf");
+
         (new YamlFileLoader(
             $container,
             new FileLocator(

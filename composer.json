@@ -1,7 +1,7 @@
 {
   "name": "bitbirddev/tinymce-bundle",
   "type": "symfony-bundle",
-  "description": "",
+  "description": "Custom TinyMCE integration for Pimcore",
   "license": "MIT",
   "authors": [
     {

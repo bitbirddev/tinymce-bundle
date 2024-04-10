@@ -21,13 +21,13 @@ class TinyMceBundle extends AbstractPimcoreBundle
 
     public function getNiceName(): string
     {
-        return 'TinyMce Bundle';
+        return 'bitbirddevTinyMceBundle';
 
     }
 
     public function getDescription(): string
     {
-        return '';
+        return 'Customizes the TinyMCE editor for Pimcore 11 and above.';
     }
 
 
