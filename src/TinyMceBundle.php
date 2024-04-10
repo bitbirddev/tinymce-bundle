@@ -4,39 +4,15 @@ declare(strict_types=1);
 
 namespace bitbirddev\TinyMceBundle;
 
-use Pimcore\Extension\Bundle\Traits\PackageVersionTrait;
-use bitbirddev\TinyMceBundle\DependencyInjection\TinyMceExtension;
 use Pimcore\Extension\Bundle\AbstractPimcoreBundle;
-use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 
-class TinyMceBundle extends AbstractPimcoreBundle
+use function dirname;
+
+final class TinyMceBundle extends AbstractPimcoreBundle
 {
-    use PackageVersionTrait;
-
-    private const CONFIG_DIR = '/config';
-
-    private const SERVICES_FILE = 'services.yaml';
-
-    private static string $configDir = '';
-
-    public function getNiceName(): string
+    public function getPath(): string
     {
-        return 'bitbirddevTinyMceBundle';
-
-    }
-
-    public function getDescription(): string
-    {
-        return 'Customizes the TinyMCE editor for Pimcore 11 and above.';
-    }
-
-
-    public function getContainerExtension(): ExtensionInterface
-    {
-        return new TinyMceExtension(
-            self::configDir(),
-            self::servicesFile()
-        );
+        return dirname(__DIR__);
     }
 
     protected function getComposerPackageName(): string
@@ -46,35 +22,8 @@ class TinyMceBundle extends AbstractPimcoreBundle
         return 'bitbirddev/tinymce-bundle';
     }
 
-
-
-    protected function getContainerExtensionClass(): string
+    public function getNiceName(): string
     {
-        return TinyMceExtension::class;
-    }
-
-    public function getPath(): string
-    {
-        if (!$this->path) {
-            $this->path = dirname(__DIR__);
-        }
-
-        return $this->path;
-    }
-
-    public static function configDir(): string
-    {
-        if (!self::$configDir) {
-            self::$configDir = realpath(
-                dirname(__DIR__) . self::CONFIG_DIR
-            );
-        }
-
-        return self::$configDir;
-    }
-
-    public static function servicesFile(): string
-    {
-        return self::SERVICES_FILE;
+        return 'bitbirddev TinyMCE Bundle';
     }
 }
