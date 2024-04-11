@@ -2,7 +2,7 @@ const defaultConfig = {
   toolbar1:
     "undo redo | blocks | " +
     "bold italic | alignleft aligncenter " +
-    "alignright alignjustify | link | table | bullist numlist outdent indent | removeformat | code | hilight",
+    "alignright alignjustify | link | table | bullist numlist outdent indent | removeformat | code | highlight",
   extended_valid_elements:
     "a[class|href|target|title|onclick|rel|data-mce-href|id],mark[class],span[class]",
   allow_script_urls: true,
@@ -25,7 +25,7 @@ const defaultConfig = {
   },
 
   setup: function (editor) {
-    editor.ui.registry.addToggleButton("hilight", {
+    editor.ui.registry.addToggleButton("highlight", {
       text: "HI",
       onAction: function (_) {
         editor.focus();
