@@ -2,7 +2,7 @@ const defaultConfig = {
   toolbar1:
     "undo redo | blocks | " +
     "bold italic | alignleft aligncenter " +
-    "alignright alignjustify | link | table | bullist numlist outdent indent | removeformat | code | hi",
+    "alignright alignjustify | link | table | bullist numlist outdent indent | removeformat | code | hilight",
   extended_valid_elements:
     "a[class|href|target|title|onclick|rel|data-mce-href|id],mark[class],span[class]",
   allow_script_urls: true,
@@ -13,32 +13,31 @@ const defaultConfig = {
   ],
 
   formats: {
-    customMark: {
+    mark: {
       inline: "mark",
       selector: "mark",
       classes: "highlight",
     },
-    customSpan: {
+    span: {
       inline: "span",
       selector: "span",
     },
   },
 
   setup: function (editor) {
-    editor.ui.registry.addToggleButton("hi", {
+    editor.ui.registry.addToggleButton("hilight", {
       text: "HI",
       onAction: function (_) {
         editor.focus();
         var isHighlighted =
-          editor.formatter.match("customMark") &&
-          editor.formatter.match("customSpan");
+          editor.formatter.match("mark") && editor.formatter.match("span");
 
         if (!isHighlighted) {
-          editor.formatter.apply("customSpan");
-          editor.formatter.apply("customMark");
+          editor.formatter.apply("span");
+          editor.formatter.apply("mark");
         } else {
-          editor.formatter.remove("customMark");
-          editor.formatter.remove("customSpan");
+          editor.formatter.remove("mark");
+          editor.formatter.remove("span");
         }
       },
     });
