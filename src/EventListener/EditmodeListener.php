@@ -2,23 +2,17 @@
 
 namespace bitbirddev\TinyMceBundle\EventListener;
 
+use Pimcore\Event\BundleManagerEvents;
 use Pimcore\Event\BundleManager\PathsEvent;
-use Pimcore\Bundle\AdminBundle\Event\BundleManagerEvents;
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
+use Symfony\Component\EventDispatcher\Attribute\AsEventListener;
 
-class EditmodeListener implements EventSubscriberInterface
+#[AsEventListener(event: BundleManagerEvents::EDITMODE_JS_PATHS, method: 'onEditmodeJsPaths')]
+class EditmodeListener
 {
-    public static function getSubscribedEvents(): array
-    {
-        return [
-            BundleManagerEvents::EDITMODE_JS_PATHS => 'onEditmodeJsPaths'
-        ];
-    }
-
-    public function onEditmodeJsPaths(PathsEvent $event)
+    public function onEditmodeJsPaths(PathsEvent $event): void
     {
         $event->setPaths(array_merge($event->getPaths(), [
-            '/assets/js/pimcore/editmode.js'
+            '/bundles/tinymce/js/pimcore/tinymce.js'
         ]));
     }
 }

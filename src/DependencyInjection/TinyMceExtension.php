@@ -13,8 +13,6 @@ use Symfony\Component\DependencyInjection\Loader\YamlFileLoader;
 class TinyMceExtension extends Extension
 {
     public function __construct(
-        private readonly string $configDir,
-        private readonly string $servicesFile
     ) {
     }
 
@@ -24,15 +22,11 @@ class TinyMceExtension extends Extension
     public function load(array $configs, ContainerBuilder $container): void
     {
 
-        ray("asdf");
-
         (new YamlFileLoader(
             $container,
-            new FileLocator(
-                $this->configDir
-            )
+            new FileLocator(__DIR__.'/../../config')
         ))
-            ->load($this->servicesFile)
+            ->load('services.yaml')
         ;
     }
 }

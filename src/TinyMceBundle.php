@@ -24,6 +24,6 @@ final class TinyMceBundle extends AbstractPimcoreBundle
 
     public function getNiceName(): string
     {
-        return 'bitbirddev TinyMCE Bundle';
+        return 'bitbirddev/tinymce-bundle';
     }
 }
