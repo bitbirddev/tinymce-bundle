@@ -4,7 +4,7 @@ const defaultConfig = {
     "bold italic | alignleft aligncenter " +
     "alignright alignjustify | link | table | bullist numlist outdent indent | removeformat | code | highlight",
   extended_valid_elements:
-    "a[class|href|target|title|onclick|rel|data-mce-href|id],mark[class],span[class]",
+    "a[class|href|target|title|onclick|rel|data-mce-href|id],mark[class],span[class],img[src|style|class|alt|title|width|height|data-mce-src]",
   allow_script_urls: true,
   link_class_list: [
     { title: "Text-Link", value: "" },
