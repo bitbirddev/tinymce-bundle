@@ -9,6 +9,7 @@ const defaultConfig = {
   link_class_list: [
     { title: 'Text-Link', value: '' },
     { title: 'Button Default', value: 'btn btn-default' },
+    { title: 'Button Dark', value: 'btn btn-dark' },
     { title: 'Outline', value: 'btn btn-default btn-outline-default' }
   ],
 
